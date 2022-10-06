@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>about</title>
+</head>
+
+<body>
+
+    <div class="container-fluid align-items-center">
+
+        <div class="box">
+            <div class="skill">
+                <span class="number" data-num="95" data-deg="310">95%</span>
+            </div>
+            <p>html</p>
+        </div>
+
+        <div class="box">
+            <div class="skill">
+                <span class="number" data-num="95" data-deg="310">95%</span>
+            </div>
+            <p>css</p>
+        </div>
+
+        <div class="box">
+            <div class="skill">
+                <span class="number" data-num="80" data-deg="290">80%</span>
+            </div>
+            <p>javascript</p>
+        </div>
+
+        <div class="box">
+            <div class="skill">
+                <span class="number" data-num="90" data-deg="300">90%</span>
+            </div>
+            <p>bootstrap</p>
+        </div>
+    </div>
+
+    <script>
+
+        let allprogress = document.querySelectorAll(".skill");
+        let allprovalue = document.querySelectorAll(".skill span");
+        const contres = Array(allprovalue.length);
+        const cir = Array(allprogress);
+        const interv = Array(contres.length);
+        contres.fill(0);
+
+        let i = 0;
+
+        allprovalue.forEach((number, index) => {
+            interv[index] = setInterval(() => {
+                if (contres[index] === parseInt(number.dataset.num)) {
+                    clearInterval(contres[index])
+                }
+                else {
+                    contres[index] += 1;
+                    number.innerHTML = contres[index] + "%";
+                    allprogress[index].style.background = `conic-gradient(#0D1E31 ${i != number.dataset.deg ? i += 1 : i}deg, rgb(237, 237, 237) 0deg)`
+                }
+            }, 50)
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
